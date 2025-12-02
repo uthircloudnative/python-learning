@@ -25,6 +25,9 @@ Welcome to the Python Basics Learning Repository! This comprehensive guide cover
 17. [Functions](#17-functions)
 18. [Function Keyword Arguments](#18-function-keyword-arguments)
 19. [Function Default Arguments](#19-function-default-arguments)
+20. [Lists (Collection Types)](#20-lists-collection-types)
+21. [Dictionaries (Collection Types)](#21-dictionaries-collection-types)
+22. [Sets (Collection Types)](#22-sets-collection-types)
 
 ---
 
@@ -710,9 +713,315 @@ print(value2)  # Output: 25
 
 ---
 
+## 20. Lists (Collection Types)
+
+**File:** `collection-types/list/list-concept.py`
+
+### Theory
+
+Lists are one of the most versatile and commonly used data structures in Python. They are ordered, mutable collections that can store elements of different data types, including other lists. Lists support indexing, slicing, and a rich set of built-in methods for manipulation.
+
+### Key Concepts
+
+- **Ordered collection**: Elements maintain their insertion order
+- **Mutable**: Elements can be added, removed, or modified after creation
+- **Heterogeneous**: Can contain different data types in the same list
+- **Allow duplicates**: Same value can appear multiple times
+- **Index-based access**: Access elements using zero-based indexing
+- **Negative indexing**: Access elements from the end using negative indices
+
+### Common List Methods
+
+- `append()`: Add element to the end
+- `extend()`: Add multiple elements from another list
+- `insert()`: Add element at specific index
+- `remove()`: Remove specific element by value
+- `pop()`: Remove and return element (last or by index)
+- `count()`: Count occurrences of an element
+- `index()`: Find position of an element
+- `sort()`: Sort list in place
+- `reverse()`: Reverse list in place
+- `len()`: Get number of elements
+
+### Example
+
+```python
+fruits = ["apple", "banana", "cherry"]
+print("Fruits in List:", fruits)  # ['apple', 'banana', 'cherry']
+
+# Index-based access
+first_fruit = fruits[0]    # 'apple'
+last_fruit = fruits[-1]    # 'cherry'
+
+# Adding elements
+fruits.append("orange")    # ['apple', 'banana', 'cherry', 'orange']
+
+# Removing elements
+fruits.remove("banana")    # ['apple', 'cherry', 'orange']
+removed = fruits.pop()     # Returns 'orange'
+
+# Slicing
+sublist = fruits[1:3]      # Get elements from index 1 to 2
+
+# Iteration
+for fruit in fruits:
+    print(fruit)
+```
+
+### Learning Objectives
+
+- Understand list creation and manipulation
+- Master indexing and slicing techniques
+- Learn essential list methods
+- Practice iterating over lists
+
+---
+
+## 21. Dictionaries (Collection Types)
+
+**File:** `collection-types/dictionary/dictionary_concept.py`
+
+### Theory
+
+Dictionaries are key-value pair collections that provide fast lookup by key. They are unordered (until Python 3.7, where insertion order is preserved), mutable, and extremely useful for storing related data. Keys must be unique and of immutable types, while values can be of any type.
+
+### Key Concepts
+
+- **Key-value pairs**: Data stored as associated pairs
+- **Unique keys**: Each key can appear only once
+- **Mutable values**: Values can be changed after creation
+- **Fast lookup**: O(1) average time complexity for key access
+- **Immutable keys**: Keys must be strings, numbers, or tuples
+- **No duplicate keys**: Adding existing key updates its value
+
+### Common Dictionary Methods
+
+- `get()`: Safely retrieve value with optional default
+- `keys()`: Get all keys as iterable
+- `values()`: Get all values as iterable
+- `items()`: Get key-value pairs as tuples
+- `pop()`: Remove and return value for a key
+- `popitem()`: Remove and return arbitrary key-value pair
+- `update()`: Add/update multiple key-value pairs
+- `len()`: Get number of key-value pairs
+
+### Example
+
+```python
+person = {"name": "John", "age": 30, "city": "New York"}
+
+# Accessing values
+name = person["name"]                    # 'John'
+country = person.get("country", "USA")   # 'USA' (default)
+
+# Adding/updating
+person["country"] = "USA"                # Add new key
+person["age"] = 31                       # Update existing
+
+# Removing
+del person["age"]                        # Delete key
+country = person.pop("country")          # Remove and return
+
+# Checking existence
+if "name" in person:
+    print("Name exists")
+
+# Iteration
+for key, value in person.items():
+    print(f"{key}: {value}")
+```
+
+### Learning Objectives
+
+- Understand dictionary structure and usage
+- Master key-value pair operations
+- Learn safe data access with get()
+- Practice dictionary iteration patterns
+
+---
+
+## 22. Sets (Collection Types)
+
+**File:** `collection-types/set/set_concept.py`
+
+### Theory
+
+Sets are unordered collections of unique elements. They automatically remove duplicates and provide mathematical set operations like union, intersection, and difference. Sets are mutable and heterogeneous, making them ideal for membership testing and eliminating duplicate values.
+
+### Key Concepts
+
+- **Unordered collection**: No guaranteed element order
+- **Unique elements**: Duplicates automatically removed
+- **Mutable**: Can add/remove elements after creation
+- **Heterogeneous**: Can contain different data types
+- **Set operations**: Union, intersection, difference, symmetric difference
+- **Fast membership testing**: O(1) average time complexity
+
+### Common Set Methods
+
+- `add()`: Add single element
+- `remove()`: Remove element (raises error if not found)
+- `discard()`: Remove element (no error if not found)
+- `pop()`: Remove and return arbitrary element
+- `union()` or `|`: Combine sets, remove duplicates
+- `intersection()` or `&`: Get common elements
+- `difference()` or `-`: Get elements in first set but not second
+- `symmetric_difference()` or `^`: Get elements in either set but not both
+- `issubset()`: Check if all elements are in another set
+- `issuperset()`: Check if contains all elements of another set
+- `clear()`: Remove all elements
+- `copy()`: Create shallow copy
+
+### Example
+
+```python
+# Creating sets
+marks = {90, 80, 75, 28, 90, 80}  # Duplicates removed: {90, 80, 75, 28}
+scores = set([90, 80, 75, 28])     # Using constructor
+
+# Adding/removing
+scores.add(71)         # {90, 80, 75, 28, 71}
+scores.remove(75)      # Raises error if not found
+scores.discard(100)    # No error if not found
+
+# Set operations
+male_ages = {25, 30, 22, 28, 18}
+female_ages = {24, 27, 22, 26, 18}
+
+all_ages = male_ages | female_ages           # Union: all unique ages
+common = male_ages & female_ages             # Intersection: {22, 18}
+male_only = male_ages - female_ages          # Difference
+different = male_ages ^ female_ages          # Symmetric difference
+
+# Membership testing
+if 75 in scores:
+    print("75 is present")
+
+# Subset/superset
+fruits = {"apple", "banana"}
+eatables = {"rice", "apple", "banana", "chicken"}
+print(fruits.issubset(eatables))      # True
+print(eatables.issuperset(fruits))    # True
+```
+
+### Learning Objectives
+
+- Understand set properties and automatic deduplication
+- Master set operations (union, intersection, difference)
+- Learn membership testing and comparison
+- Practice efficient data filtering with sets
+
+---
+
 ## 🚀 Getting Started
 
 1. **Prerequisites**: Python 3.x installed on your system
 2. **Running Examples**: Execute each file using `python filename.py`
 3. **Learning Path**: Follow the numbered sequence for progressive learning
 4. **Practice**: Modify examples and create your own variations
+
+## 💻 Practice Questions
+
+Now that you've learned the concepts, practice with these real-world programming challenges! Try to write and execute programs for each concept.
+
+### 1. Print Function (`1_print_function.py`)
+
+**Question:** Create a program that displays your personal information card. Print your name, age, favorite programming language, and a motivational quote on separate lines.
+
+### 2. Math Operators (`2_math_operator.py`)
+
+**Question:** Build a simple calculator for a restaurant bill. Calculate the total cost when you order 3 pizzas at $12.50 each, 2 drinks at $3.25 each, add 8% tax, and then add a 15% tip on the subtotal.
+
+### 3. Built-in Functions (`3_builtin_function.py`)
+
+**Question:** Create a grade analyzer program. Given test scores [85, 92, 78, 96, 88, 73, 90], find and display the highest score, lowest score, and determine if a student with score 85 passed (passing grade is 75).
+
+### 4. Formatting (`4_formatting.py`)
+
+**Question:** Create a properly formatted program that calculates the area of different rooms in a house. Define variables for length and width of 3 rooms (living_room, bedroom, kitchen) and calculate their areas. Use proper variable naming and formatting.
+
+### 5. String Operations (`5_string.py`)
+
+**Question:** Build an email validator. Take an email address, check if it contains "@" and ".", extract the username (part before @), domain name, and convert everything to lowercase. Also count how many characters are in the email.
+
+### 6. Number Operators (`6_number_operators.py`)
+
+**Question:** Create a time converter program. Given a total number of seconds (e.g., 7265), convert it to hours, minutes, and remaining seconds. Use floor division and modulus operators. Also calculate the absolute difference between two time periods.
+
+### 7. Type Conversion (`7_type_conversion.py`)
+
+**Question:** Build a shopping calculator. Ask the user to input the price of an item and quantity they want to buy. Calculate the total cost and display it with proper formatting. Handle the fact that input comes as string.
+
+### 8. Comparison Operators (`8_comparision_operators.py`)
+
+**Question:** Create a password strength checker. Compare a given password with criteria: length > 8 characters, contains "123", check if it's the same as "password123", and compare two passwords to see if they're identical.
+
+### 9. Conditional Statements (`9_conditional_operator.py`)
+
+**Question:** Build a movie ticket pricing system. Based on age, determine ticket price: children (≤12) pay $8, teens (13-17) pay $12, adults (18-64) pay $15, and seniors (≥65) pay $10. Also add a discount day (Wednesday) where everyone gets $3 off.
+
+### 10. Ternary Operator (`10_terinary_operator.py`)
+
+**Question:** Create a weather recommendation system. Ask for temperature, then use ternary operator to suggest: "Wear a jacket" if temp < 60, otherwise "T-shirt weather". Also determine if it's "Hot day" (>80) or "Comfortable".
+
+### 11. Logical Operators (`11_logical_operators.py`)
+
+**Question:** Build a login validation system. Check if a user can access the system: they must be 18 or older, have a valid email (contains @ and .), not be banned (banned_status = False), and have either admin privileges OR regular user status.
+
+### 12. For Loops (`12_for_loop.py`)
+
+**Question:** Create a multiplication table generator. Generate and display the multiplication table for number 7 (from 7×1 to 7×10). If the result is greater than 50, display "HIGH" next to it, otherwise display "LOW".
+
+### 13. Nested Loops (`13_nested_loops.py`)
+
+**Question:** Build a seating chart generator for a small theater. Create a 5-row by 8-seat layout, displaying each seat as "Row-Seat" format (e.g., "R1-S1", "R1-S2"). Mark seats R3-S4 and R3-S5 as "RESERVED".
+
+### 14. Iterables (`14_iterables.py`)
+
+**Question:** Create a student grade processor. Given a list of students ["Alice", "Bob", "Charlie"] and their grades {"Alice": 85, "Bob": 92, "Charlie": 78}, iterate through and display each student's name, grade, and whether they passed (≥80).
+
+### 15. While Loops (`15_while_loop.py`)
+
+**Question:** Build a savings goal tracker. Start with $0 and add $50 each month. Display the running total each month until you reach your goal of $500. Show which month you reached the goal.
+
+### 16. Even Number Example (`16_even_number.py`)
+
+**Question:** Create a number analyzer for a list of exam scores [67, 84, 92, 78, 96, 73, 88, 91]. Count and display how many scores are even numbers, how many are odd, and what percentage of scores are above 80.
+
+### 17. Functions (`17_functions.py`)
+
+**Question:** Build a BMI (Body Mass Index) calculator. Create functions: one to convert feet/inches to centimeters, another to calculate BMI (weight in kg / height in meters²), and a third to interpret the BMI (underweight <18.5, normal 18.5-24.9, overweight ≥25).
+
+### 18. Function Keyword Arguments (`18_fun_keyword_arg.py`)
+
+**Question:** Create a pizza order function. The function should accept pizza_size, num_toppings, and delivery_needed as keyword arguments. Calculate total cost: small=$10, medium=$12, large=$15, $2 per topping, $5 delivery fee. Call the function using keyword arguments.
+
+### 19. Function Default Arguments (`19_fun_keyword_default_args.py`)
+
+**Question:** Build a coffee shop order system. Create a function that takes coffee_type, size (default="medium"), extra_shots (default=0), and milk_type (default="regular"). Calculate price: small=$3, medium=$4, large=$5, +$0.75 per extra shot, +$0.50 for special milk types.
+
+---
+
+## 📝 Study Tips
+
+- **Hands-on Practice**: Type and run each example yourself
+- **Experimentation**: Modify code to see different outcomes
+- **Error Learning**: Make mistakes and understand error messages
+- **Building Blocks**: Each concept builds on previous ones
+- **Real Projects**: Apply concepts to small personal projects
+
+## 🎯 Next Steps
+
+After mastering these basics, consider exploring:
+
+- Object-Oriented Programming (OOP)
+- File handling and I/O operations
+- Error handling and exceptions
+- Modules and packages
+- Data structures (lists, dictionaries, sets)
+- Web development frameworks
+- Data science libraries
+
+---
+
+_Happy coding! Remember, practice makes perfect in programming._ 🐍✨
