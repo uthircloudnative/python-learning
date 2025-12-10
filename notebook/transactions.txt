@@ -1,0 +1,41 @@
+transaction_id,timestamp,card_token,cardholder,merchant,merchant_category,amount,currency,transaction_type,status,country,city,postal_code,auth_code,terminal_id
+T0001,2025-12-01T08:14:22Z,tok_a3f9b2c4d1e6f7a8_4821,Alice Johnson,Whole Foods,Grocery,86.42,USD,purchase,approved,US,San Francisco,94107,A4F2K9,TID1001
+T0002,2025-12-01T09:03:10Z,tok_b4e1c3d5f6a7b8c9_3710,Bob Martinez,Shell,Fuel,45.00,USD,purchase,approved,US,Oakland,94612,7H2J5Q,TID1002
+T0003,2025-12-01T11:27:45Z,tok_c5d2e4f6a7b8c9d0_5599,Charlie Nguyen,Amazon.com,Online Retail,129.99,USD,purchase,approved,US,San Jose,95112,9K8M2P,TID1003
+T0004,2025-12-01T12:05:30Z,tok_d6f3a5b7c8d9e0f1_8246,David Smith,Starbucks,Dining,6.75,USD,purchase,approved,US,San Francisco,94103,B3G4R1,TID1004
+T0005,2025-12-01T13:42:12Z,tok_e7a4b6c8d9e0f1a2_2104,Emma Lee,Best Buy,Electronics,399.99,USD,purchase,approved,US,San Mateo,94402,C5T7Y8,TID1005
+T0006,2025-12-01T15:18:58Z,tok_f8b5c7d9e0f1a2b3_7033,Faisal Khan,Netflix,Subscription,15.99,USD,purchase,approved,US,Mountain View,94043,H2D9L6,TID1006
+T0007,2025-12-01T16:50:05Z,tok_a9c6d8e0f1a2b3c4_6677,Gina Torres,City Hospital,Insurance,120.00,USD,purchase,approved,US,Redwood City,94063,D8N3B2,TID1007
+T0008,2025-12-01T18:22:41Z,tok_b0d7e9f1a2b3c4d5_9990,Henry Walker,Local Pharmacy,Pharmacy,23.45,USD,purchase,approved,US,San Francisco,94110,F6R1S4,TID1008
+T0009,2025-12-02T07:55:10Z,tok_c1e8f0a2b3c4d5e6_1357,Isha Patel,Uber,Travel,18.20,USD,purchase,approved,US,San Francisco,94107,J1K7V3,TID1009
+T0010,2025-12-02T08:40:33Z,tok_a3f9b2c4d1e6f7a8_4821,Alice Johnson,Peet's Coffee,Dining,4.95,USD,purchase,approved,US,San Francisco,94107,L4P8Z0,TID1010
+T0011,2025-12-02T10:12:58Z,tok_b4e1c3d5f6a7b8c9_3710,Bob Martinez,Costco,Grocery,156.78,USD,purchase,approved,US,Oakland,94612,M3Q6C5,TID1011
+T0012,2025-12-02T11:44:21Z,tok_c5d2e4f6a7b8c9d0_5599,Charlie Nguyen,Airbnb,Travel,245.00,USD,purchase,approved,US,San Jose,95112,N9A2X7,TID1012
+T0013,2025-12-02T14:05:02Z,tok_d6f3a5b7c8d9e0f1_8246,David Smith,Chipotle,Dining,12.50,USD,purchase,approved,US,San Francisco,94103,P2W5E8,TID1013
+T0014,2025-12-02T15:27:39Z,tok_e7a4b6c8d9e0f1a2_2104,Emma Lee,Apple Store,Electronics,59.00,USD,purchase,approved,US,San Mateo,94402,Q7R4T1,TID1014
+T0015,2025-12-02T17:55:44Z,tok_f8b5c7d9e0f1a2b3_7033,Faisal Khan,PG&E,Utilities,89.34,USD,purchase,approved,US,Redwood City,94063,R5H2V9,TID1015
+T0016,2025-12-03T09:11:20Z,tok_a9c6d8e0f1a2b3c4_6677,Gina Torres,AMC Theatres,Entertainment,35.00,USD,purchase,approved,US,San Francisco,94110,S8L0K3,TID1016
+T0017,2025-12-03T10:40:55Z,tok_b0d7e9f1a2b3c4d5_9990,Henry Walker,Walmart,Grocery,64.12,USD,purchase,approved,US,San Francisco,94110,T6B3N7,TID1017
+T0018,2025-12-03T12:18:33Z,tok_c1e8f0a2b3c4d5e6_1357,Isha Patel,Whole Foods,Grocery,92.10,USD,purchase,approved,US,San Francisco,94107,U4Z9M2,TID1018
+T0019,2025-12-03T13:50:09Z,tok_a3f9b2c4d1e6f7a8_4821,Alice Johnson,Delta Air Lines,Travel,378.50,USD,purchase,approved,US,San Francisco,94107,V1C5Y6,TID1019
+T0020,2025-12-03T15:03:50Z,tok_b4e1c3d5f6a7b8c9_3710,Bob Martinez,Shell,Fuel,52.10,USD,purchase,approved,US,Oakland,94612,W2J8S4,TID1020
+T0021,2025-12-04T08:22:14Z,tok_c5d2e4f6a7b8c9d0_5599,Charlie Nguyen,Amazon.com,Online Retail,24.99,USD,purchase,approved,US,San Jose,95112,X9P6R1,TID1021
+T0022,2025-12-04T09:47:30Z,tok_d6f3a5b7c8d9e0f1_8246,David Smith,Starbucks,Dining,5.25,USD,purchase,approved,US,San Francisco,94103,Y6F3D8,TID1022
+T0023,2025-12-04T11:30:05Z,tok_e7a4b6c8d9e0f1a2_2104,Emma Lee,Spotify,Subscription,9.99,USD,purchase,approved,US,San Mateo,94402,Z3G7H5,TID1023
+T0024,2025-12-04T13:05:55Z,tok_f8b5c7d9e0f1a2b3_7033,Faisal Khan,Local Clinic,Healthcare,60.00,USD,purchase,approved,US,Redwood City,94063,A7N2K8,TID1024
+T0025,2025-12-04T14:45:40Z,tok_a9c6d8e0f1a2b3c4_6677,Gina Torres,Target,Online Retail,78.60,USD,purchase,approved,US,San Francisco,94110,B0M5L2,TID1025
+T0026,2025-12-05T07:50:12Z,tok_b0d7e9f1a2b3c4d5_9990,Henry Walker,Best Buy,Electronics,199.99,USD,purchase,approved,US,San Francisco,94110,C6R9V3,TID1026
+T0027,2025-12-05T09:15:00Z,tok_c1e8f0a2b3c4d5e6_1357,Isha Patel,Uber Eats,Dining,22.40,USD,purchase,approved,US,San Francisco,94107,D2J4Q9,TID1027
+T0028,2025-12-05T10:40:27Z,tok_a3f9b2c4d1e6f7a8_4821,Alice Johnson,Amazon.com,Online Retail,15.00,USD,refund,approved,US,San Francisco,94107,E8T1P6,TID1019
+T0029,2025-12-05T12:01:11Z,tok_b4e1c3d5f6a7b8c9_3710,Bob Martinez,Gas Station,Fuel,0.00,USD,refund,approved,US,Oakland,94612,F5H2C0,TID1020
+T0030,2025-12-05T13:30:59Z,tok_c5d2e4f6a7b8c9d0_5599,Charlie Nguyen,Unknown Merchant,Online Retail,89.99,USD,purchase,declined,US,San Jose,95112,G3V7X2,TID1030
+T0031,2025-12-05T15:12:46Z,tok_d6f3a5b7c8d9e0f1_8246,David Smith,Apple Store,Electronics,1299.00,USD,purchase,approved,US,San Francisco,94103,H9L4Z7,TID1014
+T0032,2025-12-06T08:05:23Z,tok_e7a4b6c8d9e0f1a2_2104,Emma Lee,Lyft,Travel,27.80,USD,purchase,approved,US,San Mateo,94402,J2N6S5,TID1032
+T0033,2025-12-06T09:47:50Z,tok_f8b5c7d9e0f1a2b3_7033,Faisal Khan,Pharmacy Plus,Pharmacy,12.35,USD,purchase,approved,US,Redwood City,94063,K8M1Q4,TID1024
+T0034,2025-12-06T11:20:17Z,tok_a9c6d8e0f1a2b3c4_6677,Gina Torres,Concert Venue,Entertainment,120.00,USD,purchase,approved,US,San Francisco,94110,L5V2B9,TID1016
+T0035,2025-12-06T13:55:31Z,tok_b0d7e9f1a2b3c4d5_9990,Henry Walker,International Market,Grocery,42.75,USD,purchase,approved,US,San Francisco,94110,M1C8Y0,TID1017
+T0036,2025-12-07T10:08:44Z,tok_c1e8f0a2b3c4d5e6_1357,Isha Patel,TravelCo,Travel,845.50,EUR,purchase,approved,DE,Berlin,10115,N6Z3X2,TID2001
+T0037,2025-12-07T12:34:20Z,tok_a3f9b2c4d1e6f7a8_4821,Alice Johnson,HMV,Entertainment,34.95,GBP,purchase,approved,GB,London,SW1A1AA,O4D9R7,TID3001
+T0038,2025-12-07T14:50:05Z,tok_b4e1c3d5f6a7b8c9_3710,Bob Martinez,Local Deli,Dining,11.60,USD,purchase,approved,US,Oakland,94612,P0Q7M3,TID1022
+T0039,2025-12-08T09:15:55Z,tok_c5d2e4f6a7b8c9d0_5599,Charlie Nguyen,Gas Station,Fuel,38.90,USD,cash_advance,approved,US,San Jose,95112,Q7W2E6,TID1035
+T0040,2025-12-08T16:40:12Z,tok_d6f3a5b7c8d9e0f1_8246,David Smith,Online Gym,Subscription,29.99,USD,purchase,fraud_review,US,San Francisco,94103,R2T5Y8,TID1040

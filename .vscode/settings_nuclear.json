@@ -1,0 +1,33 @@
+{
+    // ULTIMATE DISABLE - No suggestions whatsoever
+    "editor.quickSuggestions": false,
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.hover.enabled": false,
+    "editor.snippetSuggestions": "none",
+    "editor.tabCompletion": "off",
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    
+    // Language specific overrides
+    "[python]": {
+        "editor.quickSuggestions": false,
+        "editor.suggestOnTriggerCharacters": false,
+        "editor.wordBasedSuggestions": "off",
+        "editor.parameterHints.enabled": false,
+        "editor.hover.enabled": false,
+        "editor.snippetSuggestions": "none",
+        "editor.tabCompletion": "off",
+        "editor.acceptSuggestionOnEnter": "off"
+    },
+    
+    // Disable all Python language features
+    "python.languageServer": "None",
+    "python.analysis.autoImportCompletions": false,
+    "python.analysis.completeFunctionParens": false,
+    "python.jediEnabled": false,
+    
+    // Disable extensions
+    "extensions.autoUpdate": false
+}
