@@ -1,70 +1,78 @@
 {
     // Disable ALL auto-suggestions for Python
-    "[python]": {
+    // Disable ALL auto-suggestions Globally
+    "editor.quickSuggestions": {
+        "other": false,
+        "comments": false,
+        "strings": false
+    },
+    "editor.suggestOnTriggerCharacters": false,
+    "editor.wordBasedSuggestions": "off",
+    "editor.parameterHints.enabled": false,
+    "editor.hover.enabled": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.tabCompletion": "off",
+    "editor.snippetSuggestions": "none",
+    "editor.suggest.showKeywords": false,
+    "editor.suggest.showSnippets": false,
+    "editor.suggest.showFunctions": false,
+    "editor.suggest.showVariables": false,
+    "editor.suggest.showClasses": false,
+    "editor.suggest.showModules": false,
+    "editor.suggest.showProperties": false,
+    "editor.suggest.showMethods": false,
+    "editor.suggest.showConstructors": false,
+    "editor.suggest.showFields": false,
+    "editor.suggest.showValues": false,
+    "editor.suggest.showConstants": false,
+    "editor.suggest.showEnums": false,
+    "editor.suggest.showEnumMembers": false,
+    "editor.suggest.showEvents": false,
+    "editor.suggest.showFiles": false,
+    "editor.suggest.showFolders": false,
+    "editor.suggest.showTypeParameters": false,
+    "editor.suggest.showIssues": false,
+    "editor.suggest.showUsers": false,
+    "editor.suggest.showColors": false,
+    "editor.suggest.showCustomcolors": false,
+    "editor.suggest.showReferences": false,
+    "editor.suggest.showWords": false,
+    "editor.suggest.showStructs": false,
+    "editor.suggest.showInterfaces": false,
+    "editor.suggest.showOperators": false,
+    "editor.suggest.showUnits": false,
+    // Explicitly disable for plaintext as well
+    "[plaintext]": {
         "editor.quickSuggestions": {
             "other": false,
             "comments": false,
             "strings": false
-        },
-        "editor.suggestOnTriggerCharacters": false,
-        "editor.wordBasedSuggestions": "off",
-        "editor.parameterHints.enabled": false,
-        "editor.hover.enabled": false,
-        "editor.acceptSuggestionOnEnter": "off",
-        "editor.acceptSuggestionOnCommitCharacter": false,
-        "editor.tabCompletion": "off",
-        "editor.snippetSuggestions": "none",
-        "editor.suggest.showKeywords": false,
-        "editor.suggest.showSnippets": false,
-        "editor.suggest.showFunctions": false,
-        "editor.suggest.showVariables": false,
-        "editor.suggest.showClasses": false,
-        "editor.suggest.showModules": false,
-        "editor.suggest.showProperties": false,
-        "editor.suggest.showMethods": false,
-        "editor.suggest.showConstructors": false,
-        "editor.suggest.showFields": false,
-        "editor.suggest.showValues": false,
-        "editor.suggest.showConstants": false,
-        "editor.suggest.showEnums": false,
-        "editor.suggest.showEnumMembers": false,
-        "editor.suggest.showEvents": false,
-        "editor.suggest.showFiles": false,
-        "editor.suggest.showFolders": false,
-        "editor.suggest.showTypeParameters": false,
-        "editor.suggest.showIssues": false,
-        "editor.suggest.showUsers": false,
-        "editor.suggest.showColors": false,
-        "editor.suggest.showCustomcolors": false,
-        "editor.suggest.showReferences": false,
-        "editor.suggest.showWords": false,
-        "editor.suggest.showStructs": false,
-        "editor.suggest.showInterfaces": false,
-        "editor.suggest.showOperators": false,
-        "editor.suggest.showUnits": false
+        }
     },
-    
     // Disable Python language server completely
     "python.languageServer": "None",
     "python.defaultInterpreterPath": "",
-    
     // Disable Python analysis features
     "python.analysis.autoImportCompletions": false,
     "python.analysis.completeFunctionParens": false,
     "python.analysis.autoSearchPaths": false,
     "python.analysis.diagnosticMode": "openFilesOnly",
     "python.analysis.typeCheckingMode": "off",
-    
     // Disable Pylance completely
     "pylance.insidersChannel": "off",
-    
     // Disable IntelliCode
     "vsintellicode.modify.editor.suggestSelection": "disabled",
-    
     // Global suggestion disables
     "editor.suggest.localityBonus": false,
     "editor.suggest.shareSuggestSelections": false,
     "editor.suggest.snippetsPreventQuickSuggestions": false,
     "editor.suggest.filterGraceful": false,
-    "editor.suggest.showStatusBar": false
+    "editor.suggest.showStatusBar": false,
+    // Disable Antigravity / AI Code Completion
+    "editor.inlineSuggest.enabled": false,
+    "antigravity.enabled": false,
+    "antigravity.codeCompletion.enabled": false,
+    "google.gemini.enableCodeCompletion": false,
+    "google.gemini.enabled": false
 }
