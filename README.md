@@ -28,6 +28,11 @@ Welcome to the Python Basics Learning Repository! This comprehensive guide cover
 20. [Lists (Collection Types)](#20-lists-collection-types)
 21. [Dictionaries (Collection Types)](#21-dictionaries-collection-types)
 22. [Sets (Collection Types)](#22-sets-collection-types)
+23. [Classes and Objects (OOP Basics)](#23-classes-and-objects-oop-basics)
+24. [Inheritance (OOP)](#24-inheritance-oop)
+25. [Encapsulation (OOP)](#25-encapsulation-oop)
+26. [Polymorphism (OOP)](#26-polymorphism-oop)
+27. [File Handling and Exception Handling](#27-file-handling-and-exception-handling)
 
 ---
 
@@ -913,6 +918,523 @@ print(eatables.issuperset(fruits))    # True
 
 ---
 
+## 23. Classes and Objects (OOP Basics)
+
+**Files:** `oops_concepts/class_basics/library.py`, `oops_concepts/class_basics/book.py`, `oops_concepts/class_basics/main.py`
+
+### Theory
+
+Object-Oriented Programming (OOP) is a programming paradigm that organizes code into objects, which are instances of classes. A class is a blueprint that defines attributes (data) and methods (functions) that objects of that class will have. This approach promotes code reusability, modularity, and better organization of complex programs.
+
+### Key Concepts
+
+- **Class**: A blueprint or template for creating objects
+- **Object**: An instance of a class with specific data
+- **Attributes**: Variables that store data within a class
+- **Methods**: Functions defined within a class that operate on the object's data
+- **`__init__()` Constructor**: Special method called when creating a new object to initialize attributes
+- **`self` parameter**: Reference to the current instance of the class
+- **`__repr__()` / `__str__()` methods**: Special methods for string representation of objects
+
+### Class Structure
+
+```python
+class ClassName:
+    def __init__(self, parameter1, parameter2):
+        self.attribute1 = parameter1
+        self.attribute2 = parameter2
+    
+    def method_name(self):
+        # Method logic
+        return some_value
+```
+
+### Example: Library Management System
+
+```python
+# Book Class
+class Book:
+    def __init__(self, title, author, isbn, rating):
+        self.title = title
+        self.author = author
+        self.isbn = isbn
+        self.rating = rating
+    
+    def __repr__(self):
+        return f"Book: {self.title} by {self.author}, Rating: {self.rating}"
+
+# Library Class
+class Library:
+    def __init__(self, name, address):
+        self.name = name
+        self.address = address
+        self.books = []  # Collection of Book objects
+    
+    def add_book(self, book):
+        self.books.append(book)
+        print(f"Added '{book.title}' to library")
+    
+    def get_all_books(self):
+        return self.books
+    
+    def find_top_rated_books(self):
+        if not self.books:
+            return []
+        max_rating = max(book.rating for book in self.books)
+        return [book for book in self.books if book.rating == max_rating]
+
+# Using the classes
+library = Library("Central Library", "123 Main St")
+book1 = Book("Python Basics", "John Doe", "123-456", 5)
+book2 = Book("Advanced Python", "Jane Smith", "789-012", 5)
+
+library.add_book(book1)
+library.add_book(book2)
+
+top_books = library.find_top_rated_books()
+print(f"Top rated books: {len(top_books)}")
+```
+
+### Learning Objectives
+
+- Understand the difference between classes and objects
+- Learn to define classes with attributes and methods
+- Master the use of `__init__()` constructor
+- Practice creating and using multiple objects
+- Understand object relationships (composition)
+- Learn special methods like `__repr__()` for object representation
+
+---
+
+## 24. Inheritance (OOP)
+
+**Files:** `oops_concepts/inheritance_concept/product.py`, `oops_concepts/inheritance_concept/electronics.py`, `oops_concepts/inheritance_concept/cloths.py`, `oops_concepts/inheritance_concept/main.py`
+
+### Theory
+
+Inheritance is a fundamental OOP concept that allows a class (child/derived class) to inherit attributes and methods from another class (parent/base class). This promotes code reuse and establishes a hierarchical relationship between classes. The child class can extend or override the parent's functionality while maintaining the base features.
+
+### Key Concepts
+
+- **Base/Parent Class**: The class being inherited from
+- **Derived/Child Class**: The class that inherits from the base class
+- **`super()`**: Built-in function to call methods from the parent class
+- **Method Overriding**: Child class can provide its own implementation of parent's methods
+- **Code Reusability**: Shared functionality lives in the parent class
+- **IS-A Relationship**: Inheritance represents an "is-a" relationship (e.g., "Electronics is-a Product")
+
+### Inheritance Syntax
+
+```python
+class ParentClass:
+    def __init__(self, param1):
+        self.attribute1 = param1
+
+class ChildClass(ParentClass):  # Inherits from ParentClass
+    def __init__(self, param1, param2):
+        super().__init__(param1)  # Call parent's __init__
+        self.attribute2 = param2
+```
+
+### Example: E-commerce Product System
+
+```python
+# Base Class
+class Product:
+    def __init__(self, name, price):
+        self.name = name
+        self.price = price
+    
+    def display_info(self):
+        return f"Product: {self.name}, Price: ${self.price}"
+
+# Child Class 1: Electronics
+class Electronics(Product):
+    def __init__(self, name, price, warranty):
+        super().__init__(name, price)  # Inherit name and price
+        self.warranty = warranty
+    
+    def display_info(self):  # Override parent method
+        return f"{self.name} - ${self.price}, Warranty: {self.warranty} months"
+
+# Child Class 2: Cloths
+class Cloths(Product):
+    def __init__(self, name, price, size):
+        super().__init__(name, price)
+        self.size = size
+    
+    def display_info(self):  # Override parent method
+        return f"{self.name} - ${self.price}, Size: {self.size}"
+
+# Using inheritance
+phone = Electronics("iPhone", 999, 12)
+shirt = Cloths("T-Shirt", 25, "L")
+
+print(phone.display_info())  # Output: iPhone - $999, Warranty: 12 months
+print(shirt.display_info())  # Output: T-Shirt - $25, Size: L
+```
+
+### Learning Objectives
+
+- Understand inheritance and its benefits
+- Learn to create parent and child classes
+- Master the use of `super()` to access parent class
+- Practice method overriding
+- Understand code reusability through inheritance
+- Learn when to use inheritance in design
+
+---
+
+## 25. Encapsulation (OOP)
+
+**Files:** `oops_concepts/encapsulation_concept/bank_account.py`, `oops_concepts/encapsulation_concept/savings_account.py`, `oops_concepts/encapsulation_concept/main.py`
+
+### Theory
+
+Encapsulation is the OOP principle of bundling data (attributes) and methods that operate on that data within a single unit (class), while restricting direct access to some components. This is achieved through access modifiers, protecting the internal state of objects from unauthorized or harmful modifications.
+
+### Key Concepts
+
+- **Data Hiding**: Restricting direct access to internal object state
+- **Public attributes**: Accessible from anywhere (`self.name`)
+- **Protected attributes**: Intended for class and subclasses only (`self._name`)
+- **Private attributes**: Accessible only within the class (`self.__name`)
+- **Getter/Setter methods**: Controlled access to private data
+- **Validation**: Encapsulation allows data validation before modification
+- **Name Mangling**: Python renames `__attribute` to `_ClassName__attribute` for privacy
+
+### Access Modifiers
+
+```python
+class Example:
+    def __init__(self):
+        self.public = "accessible everywhere"
+        self._protected = "accessible in class and subclasses"
+        self.__private = "accessible only in this class"
+```
+
+### Example: Bank Account System
+
+```python
+class BankAccount:
+    def __init__(self, account_holder, account_number, balance):
+        self.account_holder = account_holder  # Public
+        self._account_number = account_number  # Protected
+        self.__balance = balance  # Private
+    
+    def get_balance(self):
+        """Getter method for private balance"""
+        return self.__balance
+    
+    def deposit(self, amount):
+        """Controlled way to modify balance"""
+        if amount > 0:
+            self.__balance += amount
+            print(f"Deposited ${amount}")
+        else:
+            print("Invalid deposit amount")
+    
+    def withdraw(self, amount):
+        """Validation before modifying balance"""
+        if amount > 0 and amount <= self.__balance:
+            self.__balance -= amount
+            print(f"Withdrawn ${amount}")
+        else:
+            print("Insufficient balance or invalid amount")
+
+class SavingsAccount(BankAccount):
+    def __init__(self, account_holder, account_number, balance, account_type):
+        super().__init__(account_holder, account_number, balance)
+        self.account_type = account_type
+    
+    def print_statement(self):
+        # Can access protected _account_number
+        # Cannot directly access private __balance
+        print(f"Account: {self._account_number}, Balance: {self.get_balance()}")
+
+# Using encapsulation
+account = SavingsAccount("John Doe", "12345", 1000, "Savings")
+account.deposit(500)  # Controlled access
+print(account.get_balance())  # 1500
+
+# This won't work - private attribute
+# account.__balance = 99999  # Creates a new attribute, doesn't modify the real balance
+```
+
+### Learning Objectives
+
+- Understand the principle of data hiding
+- Learn public, protected, and private access modifiers
+- Master getter and setter methods
+- Practice data validation through encapsulation
+- Understand why encapsulation improves code security
+- Learn Python's name mangling mechanism
+
+---
+
+## 26. Polymorphism (OOP)
+
+**Files:** `oops_concepts/polymorphism_concept/notification.py`, `oops_concepts/polymorphism_concept/email_notification.py`, `oops_concepts/polymorphism_concept/text_notification.py`, `oops_concepts/polymorphism_concept/push_notification.py`, `oops_concepts/polymorphism_concept/main.py`
+
+### Theory
+
+Polymorphism means "many forms" and is the ability of different classes to be treated as instances of the same class through a common interface. In Python, polymorphism allows methods in different classes to have the same name but different implementations. This enables writing flexible, reusable code that can work with objects of different types.
+
+### Key Concepts
+
+- **Method Overriding**: Child classes provide specific implementation of parent's methods
+- **Abstract Methods**: Methods that must be implemented by child classes
+- **Duck Typing**: "If it walks like a duck and quacks like a duck, it's a duck"
+- **Interface**: Common set of methods across different classes
+- **`abc` module**: Python's Abstract Base Classes for enforcing method implementation
+- **`@abstractmethod` decorator**: Marks methods that must be overridden
+
+### Abstract Base Class Pattern
+
+```python
+from abc import ABC, abstractmethod
+
+class AbstractClass(ABC):
+    @abstractmethod
+    def method_name(self):
+        pass  # Must be implemented by child classes
+```
+
+### Example: Notification System
+
+```python
+from abc import ABC, abstractmethod
+
+# Abstract Base Class
+class Notification(ABC):
+    @abstractmethod
+    def send(self, message):
+        """Abstract method - must be implemented by child classes"""
+        pass
+
+# Child Class 1: Email Notification
+class EmailNotification(Notification):
+    def __init__(self, email_address):
+        self.email_address = email_address
+    
+    def send(self, message):
+        print(f"📧 Sending email to {self.email_address}: {message}")
+
+# Child Class 2: Text Notification
+class TextNotification(Notification):
+    def __init__(self, phone_number):
+        self.phone_number = phone_number
+    
+    def send(self, message):
+        print(f"📱 Sending SMS to {self.phone_number}: {message}")
+
+# Child Class 3: Push Notification
+class PushNotification(Notification):
+    def __init__(self, device_id):
+        self.device_id = device_id
+    
+    def send(self, message):
+        print(f"🔔 Sending push to device {self.device_id}: {message}")
+
+# Polymorphic function - works with any Notification type
+def send_alert(notification_channel, msg):
+    """This function doesn't care what type of notification it is"""
+    notification_channel.send(msg)  # Polymorphism in action!
+
+# Using polymorphism
+email = EmailNotification("user@example.com")
+sms = TextNotification("+1-555-0123")
+push = PushNotification("iPhone-X")
+
+message = "Your order has shipped!"
+
+# Same function call, different behaviors
+send_alert(email, message)  # Sends email
+send_alert(sms, message)    # Sends SMS
+send_alert(push, message)   # Sends push notification
+```
+
+### Learning Objectives
+
+- Understand polymorphism and its benefits
+- Learn to create abstract base classes
+- Master the `abc` module and `@abstractmethod`
+- Practice method overriding for polymorphic behavior
+- Understand how to write generic, reusable functions
+- Learn duck typing principles in Python
+
+---
+
+## 27. File Handling and Exception Handling
+
+**Files:** `file_processing/transaction_file_processor.py`, `file_processing/error.py`
+
+### Theory
+
+File handling is the process of reading from and writing to files, which is essential for persistent data storage. Exception handling allows programs to gracefully handle errors and unexpected situations without crashing. Combining these concepts enables building robust applications that can process real-world data safely, even when files are missing, corrupted, or contain invalid data.
+
+### Key Concepts
+
+#### File Handling
+- **`open()` function**: Opens files in different modes (read, write, append)
+- **Context manager (`with`)**: Automatically closes files even if errors occur
+- **File modes**: `'r'` (read), `'w'` (write), `'a'` (append), `'r+'` (read/write)
+- **`pathlib.Path`**: Modern, object-oriented way to handle file paths
+- **Reading methods**: `read()`, `readline()`, `readlines()`, iteration
+- **Writing methods**: `write()`, `writelines()`
+
+#### Exception Handling
+- **`try-except` blocks**: Catch and handle exceptions
+- **Specific exceptions**: `FileNotFoundError`, `ValueError`, `IndexError`, etc.
+- **Custom exceptions**: Create your own exception classes
+- **`raise` statement**: Explicitly trigger exceptions
+- **`finally` block**: Code that runs regardless of exceptions
+- **Multiple except clauses**: Handle different exceptions differently
+
+### File Handling Patterns
+
+```python
+from pathlib import Path
+
+# Modern way using pathlib
+file_path = Path("/path/to/file.txt")
+
+# Context manager (recommended)
+with file_path.open('r', encoding='utf-8') as file:
+    content = file.read()  # File automatically closed
+
+# Line by line processing (memory efficient)
+with file_path.open('r') as file:
+    for line in file:
+        process(line.strip())
+```
+
+### Exception Handling Patterns
+
+```python
+# Basic try-except
+try:
+    risky_operation()
+except SpecificError as e:
+    handle_error(e)
+
+# Custom exception class
+class ValidationError(Exception):
+    def __init__(self, code, message):
+        super().__init__(message)
+        self.code = code
+        self.message = message
+```
+
+### Example: Transaction File Processor
+
+```python
+from pathlib import Path
+from datetime import datetime
+
+class ValidationError(Exception):
+    """Custom exception for data validation errors"""
+    def __init__(self, error_code, error_msg):
+        super().__init__(error_msg)
+        self.error_code = error_code
+        self.error_msg = error_msg
+    
+    def __str__(self):
+        return f"{self.error_code}: {self.error_msg}"
+
+class TransactionFileProcessor:
+    def is_valid_date(self, date_str):
+        """Validate date format"""
+        try:
+            datetime.strptime(date_str, '%Y-%m-%d')
+            return True
+        except ValueError:
+            return False
+    
+    def validate_header(self, header_str):
+        """Validate CSV header"""
+        headers = header_str.split(',')
+        if headers[0] != 'account_number':
+            return ValidationError('1000', "account_number header missing")
+        if headers[1] != 'amount':
+            return ValidationError('1000', "amount header missing")
+        if headers[2] != 'date':
+            return ValidationError('1000', "date header missing")
+        return True
+    
+    def validate_transaction(self, content_str):
+        """Validate transaction data"""
+        values = content_str.split(',')
+        account_number, amount, date = values[0], values[1], values[2]
+        
+        if not (account_number.isnumeric() and len(account_number) == 5):
+            return ValidationError('2000', "Invalid account number")
+        
+        if not amount.isnumeric():
+            return ValidationError('2000', "Invalid amount")
+        
+        if not self.is_valid_date(date.strip("'")):
+            return ValidationError('2000', "Invalid date format")
+        
+        return True
+    
+    def write_to_file(self, file_path, content):
+        """Write content to file with error handling"""
+        try:
+            file_path.parent.mkdir(parents=True, exist_ok=True)
+            with file_path.open(mode='a', encoding='utf-8') as file:
+                file.write(content)
+        except Exception as e:
+            print(f"Error writing to file: {e}")
+    
+    def process_file(self, file_path):
+        """Process transaction file with comprehensive error handling"""
+        valid_file = file_path.with_name("valid_" + file_path.name)
+        invalid_file = file_path.with_name("invalid_" + file_path.name)
+        
+        try:
+            with file_path.open(encoding='utf-8') as file:
+                for line_num, line in enumerate(file, 1):
+                    content = line.strip()
+                    
+                    if line_num == 1:  # Header validation
+                        result = self.validate_header(content)
+                        if isinstance(result, ValidationError):
+                            raise result
+                        self.write_to_file(valid_file, content + "\n")
+                    else:  # Data validation
+                        result = self.validate_transaction(content)
+                        if isinstance(result, ValidationError):
+                            error_line = f"{content}|{result.error_code}|{result.error_msg}\n"
+                            self.write_to_file(invalid_file, error_line)
+                        else:
+                            self.write_to_file(valid_file, content + "\n")
+        
+        except FileNotFoundError:
+            print("Error: File not found at specified path")
+        except ValidationError as ve:
+            print(f"Validation Error: {ve}")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+
+# Usage
+processor = TransactionFileProcessor()
+file_path = Path("data/transactions.txt")
+processor.process_file(file_path)
+```
+
+### Learning Objectives
+
+- Master file reading and writing operations
+- Learn the `pathlib` module for modern file handling
+- Understand context managers and `with` statements
+- Practice creating custom exception classes
+- Learn to handle multiple types of exceptions
+- Understand graceful error handling and data validation
+- Practice separating valid and invalid data programmatically
+
+---
+
 ## 🚀 Getting Started
 
 1. **Prerequisites**: Python 3.x installed on your system
@@ -1012,15 +1534,15 @@ Now that you've learned the concepts, practice with these real-world programming
 
 ## 🎯 Next Steps
 
-After mastering these basics, consider exploring:
+After mastering these basics and OOP concepts, consider exploring:
 
-- Object-Oriented Programming (OOP)
-- File handling and I/O operations
-- Error handling and exceptions
+- Advanced OOP patterns (Abstract classes, Interfaces, Design Patterns)
 - Modules and packages
-- Data structures (lists, dictionaries, sets)
-- Web development frameworks
-- Data science libraries
+- Advanced data structures and algorithms
+- Web development frameworks (Django, Flask, FastAPI)
+- Data science libraries (NumPy, Pandas, Matplotlib)
+- Testing frameworks (pytest, unittest)
+- Asynchronous programming (asyncio)
 
 ---
 
