@@ -105,7 +105,6 @@ class TransactionFileProcessor:
     except Exception as e:
       print(e)
 
-
 if __name__ == "__main__":
     file_path = Path("/Users/abc/Documents/file_disk")/"transactions.txt"
     file_processor = TransactionFileProcessor()
